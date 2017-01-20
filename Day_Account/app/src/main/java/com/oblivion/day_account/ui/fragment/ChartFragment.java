@@ -8,4 +8,8 @@ import com.oblivion.day_account.ui.fragment.Base.BaseFragment;
  */
 
 public class ChartFragment extends BaseFragment {
+    @Override
+    public void initView() {
+
+    }
 }

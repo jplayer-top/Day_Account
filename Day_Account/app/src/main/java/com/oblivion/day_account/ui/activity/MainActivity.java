@@ -28,6 +28,7 @@ public class MainActivity extends FragmentActivity {
     @BindView(R.id.framelayout)
     FrameLayout framelayout;
     private Context mContent;
+    private int lastSelectedPosition = 1;//记录上一个点击位置
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class MainActivity extends FragmentActivity {
         mContent = this;
         initView();
         initListener();
-        //  initFragment(1);
+        initFragment(1);
     }
 
     private void initFragment(int position) {
@@ -49,7 +50,7 @@ public class MainActivity extends FragmentActivity {
                 if (fragmentByTag == null) {
                     fragmentTransaction.add(R.id.framelayout, fragment, "" + position);
                 } else {
-                   // fragmentTransaction.add(R.id.framelayout, fragmentByTag, "" + position);
+                    // fragmentTransaction.add(R.id.framelayout, fragmentByTag, "" + position);
                 }
             } else {
                 if (fragmentByTag != null) {
@@ -88,6 +89,7 @@ public class MainActivity extends FragmentActivity {
                     drawable.openDrawer(Gravity.LEFT);
                     return;
                 }
+                lastSelectedPosition = position;
                 initFragment(position);
             }
 
@@ -115,9 +117,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onDrawerClosed(View drawerView) {
                 bottomNavigationBarContainer.show();
-                if (bottomNavigationBarContainer.getCurrentSelectedPosition() == 0) {
-                    bottomNavigationBarContainer.selectTab(1);
-                }
+                bottomNavigationBarContainer.selectTab(lastSelectedPosition);
             }
 
             @Override

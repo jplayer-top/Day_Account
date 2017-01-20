@@ -8,4 +8,8 @@ import com.oblivion.day_account.ui.fragment.Base.BaseFragment;
  */
 
 public class WalletFragment extends BaseFragment {
+    @Override
+    public void initView() {
+
+    }
 }
