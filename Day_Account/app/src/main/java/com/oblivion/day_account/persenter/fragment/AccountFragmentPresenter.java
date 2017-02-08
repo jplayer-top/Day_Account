@@ -34,7 +34,7 @@ public class AccountFragmentPresenter {
                 .enqueue(new Callback<AccountbannerBean>() {
                     @Override
                     public void onResponse(Call<AccountbannerBean> call, Response<AccountbannerBean> response) {
-                        ToastUtils.makeText(mActivity, response.body().result.size() + "Obl");
+                        ToastUtils.makeText(mActivity, response.body().result.size() + "条信息");
                     }
 
                     @Override

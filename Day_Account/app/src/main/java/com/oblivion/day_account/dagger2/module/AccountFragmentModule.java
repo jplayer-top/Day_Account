@@ -15,12 +15,15 @@ import dagger.Provides;
 public class AccountFragmentModule {
     public Activity mActivity;
 
+    public AccountFragmentModule() {
+    }
+
     public AccountFragmentModule(Activity mActivity) {
         this.mActivity = mActivity;
     }
 
     @Provides
-    AccountFragmentPresenter provideAccountFragmentPresenter() {
+    public  AccountFragmentPresenter provideAccountFragmentPresenter() {
         return new AccountFragmentPresenter(mActivity);
     }
 }
