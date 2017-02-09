@@ -1,8 +1,7 @@
 package com.oblivion.day_account.dagger2.component;
 
-import android.app.Activity;
-
 import com.oblivion.day_account.dagger2.module.AccountFragmentModule;
+import com.oblivion.day_account.ui.fragment.AccountFragment;
 
 import dagger.Component;
 
@@ -12,5 +11,5 @@ import dagger.Component;
  */
 @Component(modules = {AccountFragmentModule.class})
 public interface AccountFragmentComponent {
-    void inject(Activity mActivity);
+    void inject(AccountFragment fragment);
 }

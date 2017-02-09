@@ -5,6 +5,7 @@ import android.app.Activity;
 import com.oblivion.day_account.model.net.APIService;
 import com.oblivion.day_account.model.net.BaseVar;
 import com.oblivion.day_account.model.net.bean.AccountbannerBean;
+import com.oblivion.day_account.ui.activity.MainActivity;
 import com.oblivion.day_account.utils.ToastUtils;
 
 import retrofit2.Call;
@@ -20,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AccountFragmentPresenter {
     public Activity mActivity;
 
-    public AccountFragmentPresenter(Activity mActivity) {
+    public AccountFragmentPresenter(MainActivity mActivity) {
         this.mActivity = mActivity;
     }
 

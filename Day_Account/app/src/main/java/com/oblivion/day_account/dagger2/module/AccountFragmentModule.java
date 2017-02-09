@@ -3,6 +3,7 @@ package com.oblivion.day_account.dagger2.module;
 import android.app.Activity;
 
 import com.oblivion.day_account.persenter.fragment.AccountFragmentPresenter;
+import com.oblivion.day_account.ui.activity.MainActivity;
 
 import dagger.Module;
 import dagger.Provides;
@@ -24,6 +25,6 @@ public class AccountFragmentModule {
 
     @Provides
     public  AccountFragmentPresenter provideAccountFragmentPresenter() {
-        return new AccountFragmentPresenter(mActivity);
+        return new AccountFragmentPresenter((MainActivity) mActivity);
     }
 }

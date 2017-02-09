@@ -38,7 +38,7 @@ public class AccountFragment extends BaseFragment {
     @Override
     public void initView() {
         // presenter = new AccountFragmentPresenter(mActivity);
-        DaggerAccountFragmentComponent.builder().accountFragmentModule(new AccountFragmentModule(mActivity)).build().inject(mActivity);
+        DaggerAccountFragmentComponent.builder().accountFragmentModule(new AccountFragmentModule(mActivity)).build().inject(this);
         presenter.getRawData();
         adapter = new AccountPagerAdapter();
         viewpager.setAdapter(adapter);
