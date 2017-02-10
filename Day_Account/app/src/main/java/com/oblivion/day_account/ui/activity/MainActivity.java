@@ -72,10 +72,10 @@ public class MainActivity extends FragmentActivity {
                 .setActiveColor(R.color.colorGray)
                 .setMode(BottomNavigationBar.MODE_SHIFTING)
                 .addItem(new BottomNavigationItem(R.drawable.arrow, ""))
-                .addItem(new BottomNavigationItem(R.drawable.account, "流水"))
+                .addItem(new BottomNavigationItem(R.drawable.account, "见闻"))
+                .addItem(new BottomNavigationItem(R.drawable.conduct, "流水"))
                 .addItem(new BottomNavigationItem(R.drawable.wallet, "账户"))
                 .addItem(new BottomNavigationItem(R.drawable.chart, "图表"))
-                .addItem(new BottomNavigationItem(R.drawable.conduct, "理财"))
                 .addItem(new BottomNavigationItem(R.drawable.more, "更多"))
                 .setFirstSelectedPosition(1)
                 .initialise();
