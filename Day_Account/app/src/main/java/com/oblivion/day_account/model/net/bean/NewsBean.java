@@ -1,4 +1,4 @@
-package com.oblivion.day_account.Bean;
+package com.oblivion.day_account.model.net.bean;
 
 import java.util.List;
 

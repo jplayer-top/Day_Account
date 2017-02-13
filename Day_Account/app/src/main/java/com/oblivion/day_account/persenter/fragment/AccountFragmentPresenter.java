@@ -2,11 +2,13 @@ package com.oblivion.day_account.persenter.fragment;
 
 import android.app.Activity;
 
+import com.oblivion.day_account.model.net.BaseVar;
+import com.oblivion.day_account.model.net.bean.NewsBean;
 import com.oblivion.day_account.MyApplication;
 import com.oblivion.day_account.dagger2.module.RetrofitModule;
 import com.oblivion.day_account.model.net.APIService;
-import com.oblivion.day_account.model.net.bean.AccountbannerBean;
 import com.oblivion.day_account.ui.fragment.AccountFragment;
+import com.oblivion.day_account.ui.fragment.AccountFragmentView;
 
 import javax.inject.Inject;
 
@@ -24,7 +26,7 @@ public class AccountFragmentPresenter {
     @Inject
     public Retrofit retrofit;
 
-    public AccountFragment accountFragment;
+    public AccountFragmentView accountFragment;
 
     public AccountFragmentPresenter(AccountFragment accountFragment) {
         this.mActivity = accountFragment.mActivity;
@@ -32,21 +34,22 @@ public class AccountFragmentPresenter {
     }
 
 
-    public void getRawData() {
+    public void getRawData(String type, String newsKey, final int position) {
         ((MyApplication) mActivity.getApplication()).getAppComponent()
-                .addSub(new RetrofitModule()).inject(this);
+                .addSub(new RetrofitModule(BaseVar.JH_HOST)).inject(this);
         retrofit
                 .create(APIService.class)
-                .accountBannerBeanCall()
-                .enqueue(new Callback<AccountbannerBean>() {
+                .newsBeanCall(type, newsKey)
+                .enqueue(new Callback<NewsBean>() {
                     @Override
-                    public void onResponse(Call<AccountbannerBean> call, Response<AccountbannerBean> response) {
-                        accountFragment.showComplete(response.body());
+                    public void onResponse(Call<NewsBean> call, Response<NewsBean> response) {
+                        accountFragment.showComplete(response.body(), position);
                     }
 
                     @Override
-                    public void onFailure(Call<AccountbannerBean> call, Throwable t) {
+                    public void onFailure(Call<NewsBean> call, Throwable t) {
                         accountFragment.showErrow();
+                        System.out.println(t.toString());
                     }
                 });
     }
