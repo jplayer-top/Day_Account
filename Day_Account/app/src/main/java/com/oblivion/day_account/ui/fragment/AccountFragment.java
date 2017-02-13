@@ -4,7 +4,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.HorizontalScrollView;
 
 import com.oblivion.day_account.MyApplication;
 import com.oblivion.day_account.R;
@@ -20,9 +19,6 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static android.view.View.FOCUS_LEFT;
-import static android.view.View.FOCUS_RIGHT;
-
 /**
  * author:Created by Oblivion on 2017/1/19.
  * 功能描述:
@@ -33,8 +29,6 @@ public class AccountFragment extends BaseFragment implements AccountFragmentView
     ViewPager viewpager;
     @BindView(R.id.tabLayout)
     TabLayout tabLayout;
-    @BindView(R.id.horScroll)
-    HorizontalScrollView horScroll;
     private PagerAdapter adapter;
 
     @Inject
@@ -54,18 +48,19 @@ public class AccountFragment extends BaseFragment implements AccountFragmentView
         presenter.getRawData();
         adapter = new AccountPagerAdapter();
         viewpager.setAdapter(adapter);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewpager);
         initListener();
     }
 
     private void initListener() {
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+       /* tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab.getPosition() > 4) {
-                    horScroll.pageScroll(FOCUS_RIGHT);
+                   // horScroll.pageScroll(FOCUS_RIGHT);
                 } else {
-                    horScroll.pageScroll(FOCUS_LEFT);
+                 //   horScroll.pageScroll(FOCUS_LEFT);
 
                 }
 
@@ -80,7 +75,7 @@ public class AccountFragment extends BaseFragment implements AccountFragmentView
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
-        });
+        });*/
     }
 
     @Override

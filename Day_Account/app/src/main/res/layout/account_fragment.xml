@@ -9,11 +9,11 @@
         android:layout_height="10dp"
         android:background="@color/colorPrimary">
     </LinearLayout>
-    <HorizontalScrollView
-        android:id="@+id/horScroll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none">
+    <!--<HorizontalScrollView-->
+        <!--android:id="@+id/horScroll"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:scrollbars="none">-->
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabLayout"
@@ -22,7 +22,7 @@
 
 
         </android.support.design.widget.TabLayout>
-    </HorizontalScrollView>
+    <!--</HorizontalScrollView>-->
 
     <!--<android.support.design.widget.TabLayout-->
         <!--android:id="@+id/tabLayout"-->
