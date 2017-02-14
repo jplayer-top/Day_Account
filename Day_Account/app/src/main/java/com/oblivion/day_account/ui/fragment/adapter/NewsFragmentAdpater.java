@@ -10,7 +10,10 @@ import com.oblivion.day_account.ui.fragment.viewholder.NewsFragmentViewHolder;
 
 /**
  * author:Created by Oblivion on 2017/2/13.
+
  * 功能描述:Obl-test-allasdasdadasdasd
+
+
  */
 public class NewsFragmentAdpater extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     NewsBean bean;
